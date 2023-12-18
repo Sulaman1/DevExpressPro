@@ -3,7 +3,7 @@
     "outputFileName": "wwwroot/css/thirdparty.bundle.css",
     "inputFiles": [
       "node_modules/jquery-ui-dist/jquery-ui.min.css",
-      "node_modules/bootstrap/dist/css/bootstrap.min.css",
+      "node_modules/bootstrap/dist/css/bootstrap.min.css"
     ],
     "minify": {
       "enabled": false,
@@ -219,6 +219,22 @@
       "adjustRelativePaths": false
     }
   },
+
+  {
+    "outputFileName": "wwwroot/css/designer.part.bundle.css",
+    "inputFiles": [
+      "node_modules/ace-builds/css/ace.css",
+      "node_modules/ace-builds/css/theme/dreamweaver.css",
+      "node_modules/ace-builds/css/theme/ambiance.css",
+      "node_modules/@devexpress/analytics-core/dist/css/dx-querybuilder.css",
+      "node_modules/devexpress-reporting/dist/css/dx-reportdesigner.css"
+    ],
+    "minify": {
+      "enabled": false,
+      "adjustRelativePaths": false
+    }
+  },
+
   {
     "outputFileName": "wwwroot/js/site.thirdparty.bundle.js",
     "inputFiles": [
@@ -250,7 +266,7 @@
       "node_modules/ace-builds/src-min-noconflict/theme-dreamweaver.js",
       "node_modules/ace-builds/src-min-noconflict/theme-ambiance.js",
       "node_modules/ace-builds/src-min-noconflict/snippets/text.js"
-      ],
+    ],
     "minify": {
       "enabled": false
     },
@@ -262,11 +278,25 @@
       "node_modules/devextreme-dist/js/dx.all.js",
       "node_modules/@devexpress/analytics-core/dist/js/dx-analytics-core.min.js",
       "node_modules/devexpress-reporting/dist/js/dx-webdocumentviewer.min.js"
-      ],
+    ],
     "minify": {
       "enabled": false
     },
     "sourceMap": false
   },
+
+
+  {
+    "outputFileName": "wwwroot/js/designer.part.bundle.js",
+    "inputFiles": [
+
+      "node_modules/@devexpress/analytics-core/dist/js/dx-querybuilder.min.js",
+      "node_modules/devexpress-reporting/dist/js/dx-reportdesigner.min.js"
+    ],
+    "minify": {
+      "enabled": false
+    },
+    "sourceMap": false
+  }
 
 ]

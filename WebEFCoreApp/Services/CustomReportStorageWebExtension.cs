@@ -4,13 +4,15 @@ using System.Linq;
 using DevExpress.XtraReports.UI;
 using WebEFCoreApp.PredefinedReports;
 using WebEFCoreApp.Data;
+using DBContext.Data;
+using DAL.DevModels;
 
 namespace WebEFCoreApp.Services
 {
     public class CustomReportStorageWebExtension : DevExpress.XtraReports.Web.Extensions.ReportStorageWebExtension
     {
-        protected ReportDbContext DbContext { get; set; }
-        public CustomReportStorageWebExtension(ReportDbContext dbContext) {
+        protected ApplicationDbContext DbContext { get; set; }
+        public CustomReportStorageWebExtension(ApplicationDbContext dbContext) {
             this.DbContext = dbContext;
         }
 
@@ -66,7 +68,7 @@ namespace WebEFCoreApp.Services
             using var stream = new MemoryStream(); report.SaveLayoutToXml(stream);
             var reportData = DbContext.Reports.FirstOrDefault(x => x.Name == url);
             if(reportData == null) {
-                DbContext.Reports.Add(new ReportItem { Name = url, LayoutData = stream.ToArray() });
+                DbContext.Reports.Add(new ReportEntity { Name = url, LayoutData = stream.ToArray() });
             } else {
                 reportData.LayoutData = stream.ToArray();
             }

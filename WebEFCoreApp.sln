@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebEFCoreApp", "WebEFCoreApp\WebEFCoreApp.csproj", "{EEE4C068-ABF2-41A6-80FA-44F2E367B05A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebEFCoreApp", "WebEFCoreApp\WebEFCoreApp.csproj", "{EEE4C068-ABF2-41A6-80FA-44F2E367B05A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "S:\Testing\BLEPMISSource\DAL\DAL.csproj", "{3E612C8A-9116-4827-88CC-AA213C811634}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DBContext", "S:\Testing\BLEPMISSource\Domain\DBContext.csproj", "{FD66A956-8CBE-4298-95CE-F39F5E1DB69A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{EEE4C068-ABF2-41A6-80FA-44F2E367B05A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEE4C068-ABF2-41A6-80FA-44F2E367B05A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEE4C068-ABF2-41A6-80FA-44F2E367B05A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E612C8A-9116-4827-88CC-AA213C811634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E612C8A-9116-4827-88CC-AA213C811634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E612C8A-9116-4827-88CC-AA213C811634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E612C8A-9116-4827-88CC-AA213C811634}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD66A956-8CBE-4298-95CE-F39F5E1DB69A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD66A956-8CBE-4298-95CE-F39F5E1DB69A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD66A956-8CBE-4298-95CE-F39F5E1DB69A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD66A956-8CBE-4298-95CE-F39F5E1DB69A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

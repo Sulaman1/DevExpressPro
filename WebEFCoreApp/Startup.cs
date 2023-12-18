@@ -14,6 +14,9 @@ using Microsoft.Extensions.Logging;
 using WebEFCoreApp.Data;
 using WebEFCoreApp.Services;
 using WebDashboardDataSources;
+using DBContext.Data;
+using DevExpress.DataAccess.Web;
+using DevExpress.DataAccess.Wizard.Services;
 
 namespace WebEFCoreApp {
     public class Startup {
@@ -26,6 +29,26 @@ namespace WebEFCoreApp {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
             services.AddDevExpressControls();
+
+            services.ConfigureReportingServices(configurator => {
+                configurator.ConfigureReportDesigner(designerConfigurator => {
+                    designerConfigurator.RegisterDataSourceWizardConfigFileConnectionStringsProvider();
+                });
+            });
+
+            var configuration = new ConfigurationBuilder()
+.SetBasePath(Directory.GetCurrentDirectory())
+.AddJsonFile("appsettings.json")
+.Build();
+
+            services.AddScoped<ReportStorageWebExtension, CustomReportStorageWebExtension>();//CustomReportStorageWebExtension
+            services.AddScoped<IConnectionProviderService, CustomSqlConnectionProviderService>();
+            services.AddScoped<IConnectionProviderFactory, CustomSqlDataConnectionProviderFactory>();
+            //services.AddSingleton<IScopedDbContextProvider<ApplicationDbContext>, ScopedDbContextProvider<ApplicationDbContext>>();
+            services
+                .AddMvc()
+                .AddNewtonsoftJson();
+
             services.AddScoped<ReportStorageWebExtension, CustomReportStorageWebExtension>();
             services
                 .AddMvc()
@@ -40,6 +63,8 @@ namespace WebEFCoreApp {
                 });
                 configurator.UseAsyncEngine();
             });
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Reporting")));
+
             services.AddDbContext<ReportDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("ReportsDataConnectionString")));
             services.AddDbContext<OrdersContext>(options => options.UseSqlite(Configuration.GetConnectionString("NWindConnectionString")), ServiceLifetime.Transient);
         }

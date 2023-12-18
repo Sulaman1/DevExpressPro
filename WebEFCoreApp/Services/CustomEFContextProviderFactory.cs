@@ -12,7 +12,8 @@ namespace WebEFCoreApp.Services {
             return new CustomEFContextProvider(serviceProvider.CreateScope());
         }
     }
-    public class CustomEFContextProvider : IEFContextProvider, IDisposable {
+    public class CustomEFContextProvider : IEFContextProvider
+    {//, IDisposable
         private readonly IServiceScope scope;
         public CustomEFContextProvider(IServiceScope scope) {
             this.scope = scope;
@@ -24,8 +25,8 @@ namespace WebEFCoreApp.Services {
                 return scope.ServiceProvider.GetRequiredService(contextType);
             return null;
         }
-        public void Dispose() {
-            scope.Dispose();
-        }
+        //public void Dispose() {
+        //    scope.Dispose();
+        //}
     }
 }
